@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :tweets
+  resources :zombies
+  get '/new_tweet' => 'tweets#new'
+  get '/all' => redirect('/tweets')
+  root to: "tweets#index"
+  get '/local_tweets/:zipcode' => 'tweets#index'
+  get ':name' => 'tweets#index', as: 'zombie_tweets'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
