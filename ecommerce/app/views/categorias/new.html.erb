@@ -1,11 +1,10 @@
 <%= notice if notice.present? %>
-<%= form_for @categoria do |produto| %>
-  <div class="form-group">
-    <%= produto.label :descricao %>
-    <%= produto.text_field :descricao, class: 'form-control', placeholder: 'Digite a Descricão do Produto' %>
-    <%= produto.submit value='Adicionar', class: "btn btn-primary"%>
+<h3>Descrição</h3><br>
+  <%= form_for @categoria do |categoria| %>
+  <%= categoria.text_field :descricao, class: 'form-control', placeholder: 'Digite a Descricão da Categoria' %>
+    <div class="form-group" style="padding-top: 15px; ">
+      <%= categoria.button 'Adicionar', type: :submit, class: "btn btn-primary"%> <%= link_to 'Voltar', categorias_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
 
-
-  </div>
-<% end %>

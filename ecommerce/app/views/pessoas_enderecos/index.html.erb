@@ -1,0 +1,45 @@
+<%= notice if notice.present? %>
+
+<h3>Lista de Produtos</h3>
+<div style="padding-bottom: 15px; padding-top: 10px">
+  <%= link_to "Criar novo Endereço", new_pessoa_endereco_path, method: :get, class: "btn btn-primary" %>
+</div>
+
+<table class="table table-striped">
+  <thead class="thead">
+  <tr>
+    <th scope="col">Cód. do Endereço</th>
+    <th scope="col">Nome</th>
+    <th scope="col">Produto</th>
+    <th scope="col">Rua</th>
+    <th scope="col">Número</th>
+    <th scope="col">Bairro</th>
+    <th scope="col">Cidade</th>
+    <th scope="col">UF</th>
+    <th scope="col">CEP</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <% @pessoas_enderecos.each do |pessoa_endereco| %>
+    <tr>
+      <td><%= pessoa_endereco.id %></td>
+      <td><%= pessoa_endereco.nome %></td>
+      <td><%= pessoa_endereco.produto.descricao %></td>
+      <td><%= pessoa_endereco.rua %></td>
+      <td><%= pessoa_endereco.numero %></td>
+      <td><%= pessoa_endereco.bairro %></td>
+      <td><%= pessoa_endereco.cidade %></td>
+      <td><%= pessoa_endereco.uf %></td>
+      <td><%= pessoa_endereco.cep %></td>
+
+      <td width="80px"><%= link_to 'Editar', edit_pessoa_endereco_path(pessoa_endereco), class: "btn btn-primary" %></td>
+      <td width="90px"><%= link_to 'Mostrar', pessoa_endereco_path(pessoa_endereco), class: "btn btn-primary" %></td>
+      <td width="90px"><%= link_to 'Apagar', pessoa_endereco, method: :delete, class: "btn btn-danger" %></td>
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>
+

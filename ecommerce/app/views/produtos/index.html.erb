@@ -1,0 +1,45 @@
+<%= notice if notice.present? %>
+
+<h3>Lista de Produtos</h3>
+<div style="padding-bottom: 15px; padding-top: 10px">
+  <%= link_to "Criar novo Produto", new_produto_path, method: :get, class: "btn btn-primary" %>
+</div>
+
+<table class="table table-striped">
+  <thead class="thead">
+  <tr>
+    <th scope="col">Cód. do Produto</th>
+    <th scope="col">Descrição</th>
+    <th scope="col">Categoria</th>
+    <th scope="col">Estoque</th>
+    <th scope="col">Ativo</th>
+    <th scope="col">Promoção</th>
+    <th scope="col">Número de Parcelas</th>
+    <th scope="col">Valor de Promoção</th>
+    <th scope="col">Valor</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <% @produtos.each do |produto| %>
+    <tr>
+      <td><%= produto.id %></td>
+      <td><%= produto.descricao %></td>
+      <td><%= produto.categoria.descricao %></td>
+      <td><%= produto.estoque %></td>
+      <td><%= produto.ativo %></td>
+      <td><%= produto.promocao %></td>
+      <td><%= produto.numero_parcelas %></td>
+      <td><%= produto.valor_promocao %></td>
+      <td><%= produto.valor %></td>
+
+      <td width="80px"><%= link_to 'Editar', edit_produto_path(produto), class: "btn btn-primary" %></td>
+      <td width="90px"><%= link_to 'Mostrar', produto_path(produto), class: "btn btn-primary" %></td>
+      <td width="90px"><%= link_to 'Apagar', produto, method: :delete, class: "btn btn-danger" %></td>
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>
+

@@ -6,7 +6,8 @@ gem 'rails', '4.1.14'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.11'
 gem 'awesome_print'
-gem "twitter-bootstrap-rails"
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+gem 'rails-assets-bootstrap', '3.3.6', source: 'https://rails-assets.org'
 gem 'will_paginate', '~> 3.1.0'
 gem 'pry', '~> 0.12.2'
 # Use SCSS for stylesheets

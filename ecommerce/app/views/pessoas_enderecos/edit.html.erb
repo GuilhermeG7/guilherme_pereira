@@ -1,0 +1,57 @@
+<% if @pessoa_endereco.errors.any? %>
+  <div id="error_explanation" style="padding-bottom: 20px">
+    <h3><%= pluralize(@pessoa_endereco.errors.count, "erro") %> impedem este produto de ser salvo:</h3>
+    <ul>
+      <% @pessoa_endereco.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h3>Endereços</h3>
+<%= form_for @pessoa_endereco, :html => { :multipart => true } do |pessoa_endereco| %>
+  <div class="form-group" style="...">
+    <%= pessoa_endereco.label :nome %>
+    <%= pessoa_endereco.text_field :nome, class: 'form-control',  placeholder: 'Digite seu Nome', value: @pessoa_endereco.nome %>
+  </div>
+
+  <div class="form-group">
+    <%= pessoa_endereco.label :produto_id %>
+    <%= pessoa_endereco.collection_select(:produto_id, Produto.all, :id, :descricao, value: @pessoa_endereco.produto_id) %>
+  </div>
+
+  <div class="form-group">
+    <%= pessoa_endereco.label :rua %>
+    <%= pessoa_endereco.text_field :rua, class: 'form-control', value: @pessoa_endereco.rua %>
+  </div>
+
+  <div class="form-group">
+    <%= pessoa_endereco.label :numero %>
+    <%= pessoa_endereco.number_field :numero, class: 'form-control', value: @pessoa_endereco.numero %>
+  </div>
+
+  <div class="form-group">
+    <%= pessoa_endereco.label :bairro %>
+    <%= pessoa_endereco.text_field :bairro, class: 'form-control', value: @pessoa_endereco.bairro %>
+  </div>
+
+  <div class="form-group">
+    <%= pessoa_endereco.label :cidade %>
+    <%= pessoa_endereco.text_field :cidade, class: 'form-control', value: @pessoa_endereco.cidade %>
+  </div>
+
+  <div class="form-group">
+    <%= pessoa_endereco.label :uf %>
+    <%= pessoa_endereco.text_field :uf, class: 'form-control', value: @pessoa_endereco.uf %>
+  </div>
+
+  <div class="form-group">
+    <%= pessoa_endereco.label :cep %>
+    <%= pessoa_endereco.text_field :cep, class: 'form-control', value: @pessoa_endereco.cep %>
+  </div>
+
+  <div class="form-group" style="padding-top: 15px;">
+    <%= pessoa_endereco.button 'Atualizar', type: :submit, class: "btn btn-primary"%> <%= link_to 'Voltar', pessoas_enderecos_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  resources :categorias
+  resources :produtos
+  resources :index
+  resources :layouts
+  resources :pessoas_enderecos
+  resources :pesquisas_enderecos
+
+  match '/busca_principal', to: 'index#busca_principal', via: :post
+
+  root 'index#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
-  root  'categorias#new'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   # Example of named route that can be invoked with purchase_url(id: product.id)
@@ -25,7 +34,7 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-  resource :categorias
+
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments

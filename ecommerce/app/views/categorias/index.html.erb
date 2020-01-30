@@ -1,0 +1,30 @@
+<%= notice if notice.present? %>
+<h3>Lista de Categorias</h3>
+<div style="padding-bottom: 15px; padding-top: 15px">
+<%= link_to "Criar nova categoria", new_categoria_path, method: :get, class: "btn btn-primary"  %>
+</div>
+<table class="table table-striped">
+  <thead class="thead">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Descrição</th>
+    <th scope="col">Quantidade Produtos</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @categorias.each do |categoria| %>
+  <tr>
+    <td><%= categoria.id %></td>
+    <td><%= categoria.descricao %></td>
+    <td><%= categoria.produtos.size %></td>
+
+    <td width="80px"><%= link_to 'Editar', edit_categoria_path(categoria), class: "btn btn-primary" %></td>
+    <td width="90px"><%= link_to 'Mostrar', categoria_path(categoria), class: "btn btn-primary" %></td>
+    <td width="90px"><%= link_to 'Apagar', categoria, method: :delete, class: "btn btn-danger" %></td>
+  </tr>
+
+    <% end %>
+  </tbody>
+</table>

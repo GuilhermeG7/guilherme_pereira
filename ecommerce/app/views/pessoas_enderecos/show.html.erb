@@ -1,0 +1,45 @@
+<%= notice if notice.present? %>
+
+<form>
+  <%= form_for @pessoa_endereco do |f| %>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1"><%= f.label :id %></label>
+      <input type="email" class="form-control" <%= f.text_field :id, value: @pessoa_endereco.id, disabled: true %>
+    </div>
+    <div class="form-group">
+      <label><%= f.label :nome %></label>
+      <input type="text" class="form-control" <%= f.text_field :descricao, value: @pessoa_endereco.nome, disabled: true %>
+    </div>
+    <div class="form-group">
+      <label><%= f.label :produto %></label>
+      <input type="text" class="form-control" <%= f.text_field :descricao, value: @pessoa_endereco.produto.descricao, disabled: true %>
+    </div>
+    <div class="form-group">
+      <label><%= f.label :rua %></label>
+      <input type="text" class="form-control" <%= f.text_field :descricao, value: @pessoa_endereco.rua, disabled: true %>
+    </div>
+    <div class="form-group">
+      <label><%= f.label :numero %></label>
+      <input type="text" class="form-control" <%= f.text_field :descricao, value: @pessoa_endereco.numero, disabled: true %>
+    </div>
+    <div class="form-group">
+      <label><%= f.label :bairro %></label>
+      <input type="text" class="form-control" <%= f.text_field :descricao, value: @pessoa_endereco.bairro, disabled: true %>
+    </div>
+    <div class="form-group">
+      <label><%= f.label :cidade %></label>
+      <input type="text" class="form-control" <%= f.text_field :descricao, value: @pessoa_endereco.cidade, disabled: true %>
+    </div>
+    <div class="form-group">
+      <label><%= f.label :uf %></label>
+      <input type="text" class="form-control" <%= f.text_field :descricao, value: @pessoa_endereco.uf, disabled: true %>
+    </div>
+    <div class="form-group">
+      <label><%= f.label :cep %></label>
+      <input type="text" class="form-control" <%= f.text_field :descricao, value: @pessoa_endereco.cep, disabled: true %>
+    </div>
+
+    <%= link_to 'Voltar', pessoas_enderecos_path, class: "btn btn-primary" %>
+  <% end %>
+</form>

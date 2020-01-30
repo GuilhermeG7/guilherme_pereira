@@ -10,6 +10,8 @@
    #inflect.uncountable %w( fish sheep )
 
    inflect.irregular 'categoria', 'categorias'
+   inflect.irregular 'produto', 'produtos'
+   inflect.irregular 'pessoa_endereco', 'pessoas_enderecos'
 
  end
 

@@ -1,0 +1,15 @@
+<h3>Pesquisa Endereços</h3>
+
+<%= form_tag({controller: 'pesquisas_enderecos', action: 'index'}, remote: true) do %>
+  <div class="row" id="teste" style="padding-left: 50px; padding-bottom: 50px" >
+    <div class="form-group" style="padding-left: 50px;padding-top: 20px; ">
+      <label style="padding-bottom: 7px">Digite sua pesquisa</label>
+      <%= search_field_tag('descricao', nil , class: 'form-control') %>
+    </div>
+
+    <div class="form-group" style="padding-left: 50px; padding-top: 50px;">
+      <%= submit_tag "Buscar", class: "btn btn-info", remote: true %>
+    </div>
+  </div>
+
+<% end %>

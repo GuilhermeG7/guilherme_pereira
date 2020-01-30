@@ -1,0 +1,29 @@
+<div class="row">
+  <% busca_principal.each do |produto| %>
+
+    <% valor_inteiro = produto.valor.to_d %>
+    <% numero_de_parcelas_inteiro = produto.numero_parcelas.to_d %>
+
+    <div class="card" style="width: 35rem; padding-right: 25px; padding-left: 25px;">
+      <%= image_tag produto.imagem_produto, class: "card-img-top", style: "width: 250px; height: 250px;" %>
+
+      <div class="card-body" style="height: 150px;">
+
+        <h4 class="card-title"><%= link_to "#{produto.descricao} - Estoque disponível #{produto.estoque} unidade(s) ", produto_path(produto) %></h4>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <% tag_promocao = produto.valor_promocao > 0.0 ? :s : :p %>
+        <%= content_tag(:li, content_tag(tag_promocao, "Preço: R$ #{number_with_precision(produto.valor, precision: 2)}"), class: "list-group-item") %>
+        <%= content_tag(:li, content_tag(:p, produto.valor_promocao > 0.0 ? "Por Apenas: R$ #{number_with_precision(produto.valor_promocao, precision: 2)}" : "Sem promoção" ), class: "list-group-item") %>
+        <%= content_tag(:li, content_tag(:p, "Ou por: #{produto.numero_parcelas}x de R$ #{number_with_precision(valor_inteiro / numero_de_parcelas_inteiro, precision: 2)}"), class: "list-group-item") %>
+      </ul>
+
+      <div class="card-body">
+        <a href="#" class="btn btn-primary">Comprar</a>
+        <a href="#" class="btn btn-primary">Carrinho</a>
+      </div>
+
+    </div>
+  <% end %>
+</div>

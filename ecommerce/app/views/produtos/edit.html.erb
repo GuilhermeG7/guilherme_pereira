@@ -1,0 +1,49 @@
+<%= notice if notice.present? %>
+
+<h3>Produtos</h3>
+<%= form_for @produto, :html => { :multipart => true } do |produto| %>
+  <div class="form-group" style="...">
+    <%= produto.label :descricao %>
+    <%= produto.text_field :descricao, class: 'form-control',  placeholder: 'Digite a Descricão do Produto', value: @produto.descricao %>
+  </div>
+
+  <div class="form-group">
+    <%= produto.label :categoria_id %>
+    <%= produto.collection_select(:categoria_id, Categoria.all, :id, :descricao, value: @produto.categoria_id) %>
+  </div>
+
+  <div class="form-group">
+    <%= produto.label :estoque %>
+    <%= produto.number_field :estoque, class: 'form-control', value: @produto.estoque %>
+  </div>
+
+  <div class="form-group">
+    <%= produto.label :valor %>
+    <%= produto.text_field :valor, class: 'form-control', value: @produto.valor %>
+  </div>
+
+  <div class="form-group">
+    <%= produto.label :numero_parcelas %>
+    <%= produto.number_field :numero_parcelas, class: 'form-control',value: @produto.numero_parcelas %>
+  </div>
+
+  <div class="form-group">
+    <%= produto.label :ativo %> <%= produto.check_box :ativo, value: @produto.ativo %>
+    <%= produto.label :promocao %> <%= produto.check_box :promocao, value: @produto.promocao %>
+  </div>
+
+  <div class="form-group">
+    <%= produto.label :valor_promocao %>
+    <%= produto.text_field :valor_promocao, class: 'form-control', value: @produto.valor_promocao %>
+  </div>
+
+  <div class="form-group">
+    <%= produto.label :imagem_produto %>
+    <%= file_field(:produto, :imagem_produto, value: @produto.imagem_produto) %>
+  </div>
+
+
+  <div class="form-group" style="padding-top: 15px;">
+    <%= produto.button 'Salvar', type: :submit, class: "btn btn-primary"%> <%= link_to 'Voltar', produtos_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

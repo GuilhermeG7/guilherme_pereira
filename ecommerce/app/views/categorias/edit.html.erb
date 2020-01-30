@@ -1,1 +1,13 @@
 <%= notice if notice.present? %>
+
+  <h3>Descrição</h3>
+<br>
+<%= form_for @categoria do |f| %>
+  <%= f.text_field :descricao, class: 'form-control', value: @categoria.descricao %>
+  <div class="form-group" style="padding-top: 15px ">
+    <%= f.button 'Salvar', type: :submit , class: 'btn btn-success'%>
+    <%= link_to 'Voltar', categorias_path, class: 'btn btn-primary'%>
+  </div>
+<% end %>
+
+
