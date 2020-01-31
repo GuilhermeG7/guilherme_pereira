@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :index
   resources :layouts
   resources :pessoas_enderecos
-  resources :pesquisas_enderecos
+  resources :pesquisas_enderecos do
+    get :busca_endereco, on: :collection
+  end
 
   match '/busca_principal', to: 'index#busca_principal', via: :post
 

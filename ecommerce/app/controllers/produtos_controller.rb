@@ -57,13 +57,14 @@ class ProdutosController < ApplicationController
   end
 
   def destroy
+
     produto_apaga = Produto.find(set_produto)
 
     if produto_apaga.destroy
       redirect_to produtos_path(produto_apaga), notice: 'Produto apagado com sucesso!'
     end
-  end
 
+  end
   private
 
   def set_produto

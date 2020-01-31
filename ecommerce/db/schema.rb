@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20200129185146) do
     t.string   "uf",         null: false
     t.string   "cep",        null: false
     t.integer  "numero",     null: false
-    t.integer  "produto_id", null: false
+    t.integer  "produto_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

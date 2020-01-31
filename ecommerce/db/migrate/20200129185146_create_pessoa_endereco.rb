@@ -9,7 +9,7 @@ class CreatePessoaEndereco < ActiveRecord::Migration
       t.string :cep, null: false
       t.integer :numero ,null: false
 
-      t.references :produto, index: true, null: false
+      t.references :produto, index: true
       t.timestamps
     end
   end

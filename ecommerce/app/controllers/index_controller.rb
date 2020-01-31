@@ -5,7 +5,6 @@ class IndexController < ApplicationController
   end
 
   def busca_principal
-
     descricao = params[:descricao]
     categoria_id = params[:busca][:categoria_id]
     ordenacao = params[:busca][:ordenacao_consulta]
